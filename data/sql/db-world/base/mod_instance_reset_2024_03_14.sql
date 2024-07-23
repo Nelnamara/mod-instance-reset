@@ -1,25 +1,20 @@
 
-SET
-@Entry      := 300000,
-@Model      := 24877,
-@Name       := "Cromi",
-@Title      := "Instance Reset";
+DELETE FROM `creature_template` WHERE `entry` = 601018;
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `speed_swim`, `speed_flight`, `detection_range`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `ExperienceModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`)
+VALUES
+	(601018, 0, 0, 0, 0, 0, 'Pillar of Nozdormu', 'Decimator of Events Past', 'Speak', 0, 80, 80, 0, 35, 1, 1, 1.14286, 1, 1, 20, 1, 0, 0, 1, 0, 0, 1, 1, 1, 2, 0, 0, 0, 0, 0, 0, 0, 7, 138936390, 0, 0, 0, 0, 0, 0, 0, '', 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 16777216, 'instance_reset', NULL);
 
-DELETE FROM `creature_template` WHERE `entry` = @Entry;
+DELETE FROM `creature_template_locale` WHERE `entry`= 601018;
 
-INSERT INTO `creature_template` (`entry`, `modelid1`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `unit_class`, `unit_flags`, `type`, `type_flags`, `RegenHealth`, `flags_extra`, `ScriptName`) VALUES
-(@Entry, @Model, @Name, @Title, "Speak", 0, 80, 80, 35, 0, 1, 1.14286, 1, 0, 1, 2, 7, 138936390, 1, 2, "instance_reset");
-
-UPDATE `creature_template` SET `npcflag`=`npcflag`|1, `flags_extra`=`flags_extra`|16777216 WHERE `entry`=@Entry;
-
-DELETE FROM `creature_template_locale` WHERE `entry`=@Entry;
+DELETE FROM `creature_template_model` WHERE `CreatureID` IN (601018);
+INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
+	( 601018, 0, 24877, 1, 1, 12340);
 
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
-(@Entry, 'esES', @Name, 'Reinicio de instancias', 0),
-(@Entry, 'esMX', @Name, 'Reinicio de instancias', 0),
-(@Entry, 'frFR', @Name, 'Redémarrage des instances', 0),
-(@Entry, 'koKR', @Name, '인스턴스 재시작', 0),
-(@Entry, 'deDE', @Name, 'Neustart der Instanz', 0),
-(@Entry, 'zhCN', @Name, '重新启动实例', 0),
-(@Entry, 'zhTW', @Name, '重置副本', 0),
-(@entry, 'ruRU', @name, 'Перезапуск подземелий', 0);
+( 601018, 'esES', 'Pilar de Nozdormu', 'Decimador de acontecimientos pasados', 0),
+( 601018, 'esMX', 'Pilar de Nozdormu', 'Decimador de acontecimientos pasados', 0),
+( 601018, 'frFR', 'Pilier de Nozdormu', 'Décimateur des événements passés', 0),
+( 601018, 'koKR', '노즈도르무의 기둥', '과거의 사건의 십일조', 0),
+( 601018, 'deDE', 'Säule von Nozdormu', 'Dezimierer vergangener Ereignisse', 0),
+( 601018, 'zhCN', '諾茲多姆之柱', '過去事件的毀滅者', 0),
+( 601018, 'ruRU', 'Столп Ноздорму', 'Уничтожитель событий прошлого', 0);
