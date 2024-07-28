@@ -8,7 +8,7 @@ DELETE FROM `creature_template_locale` WHERE `entry`= 601018;
 
 DELETE FROM `creature_template_model` WHERE `CreatureID` IN (601018);
 INSERT INTO `creature_template_model` (`CreatureID`, `Idx`, `CreatureDisplayID`, `DisplayScale`, `Probability`, `VerifiedBuild`) VALUES
-	( 601018, 0, 24877, 1, 1, 12340);
+	( 601018, 0, 24868, 1, 1, 12340);
 
 INSERT INTO `creature_template_locale` (`entry`, `locale`, `Name`, `Title`, `VerifiedBuild`) VALUES
 ( 601018, 'esES', 'Pilar de Nozdormu', 'Decimador de acontecimientos pasados', 0),
